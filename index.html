@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>企业满意度评价表</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            font-family: "Microsoft YaHei", "Segoe UI", sans-serif;
+        }
+        body {
+            margin: 0;
+            padding: 20px;
+            background-color: #f5f7fa;
+            color: #333;
+        }
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+        }
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #eaeaea;
+        }
+        .header h1 {
+            color: #1a5276;
+            margin-bottom: 5px;
+        }
+        .header p {
+            color: #7f8c8d;
+            font-size: 16px;
+        }
+        .section {
+            margin-bottom: 25px;
+        }
+        .section-title {
+            font-weight: bold;
+            font-size: 18px;
+            margin-bottom: 15px;
+            padding: 10px 15px;
+            background: #e8f4fd;
+            border-left: 4px solid #3498db;
+            border-radius: 4px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 15px;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px 15px;
+            text-align: left;
+        }
+        th {
+            background-color: #f8f9fa;
+            width: 30%;
+            font-weight: 600;
+        }
+        .rating {
+            display: flex;
+            justify-content: space-between;
+            margin: 5px 0;
+        }
+        .rating label {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            cursor: pointer;
+        }
+        .rating input {
+            margin-bottom: 5px;
+        }
+        textarea {
+            width: 98%;
+            height: 80px;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            resize: vertical;
+            font-size: 14px;
+        }
+        .footer {
+            margin-top: 30px;
+            text-align: center;
+            font-size: 14px;
+            color: #666;
+        }
+        .submit-btn {
+            background: #3498db;
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            cursor: pointer;
+            border-radius: 4px;
+            font-size: 16px;
+            font-weight: bold;
+            transition: background 0.3s;
+            margin: 10px 0;
+        }
+        .submit-btn:hover {
+            background: #2980b9;
+        }
+        .required:after {
+            content: " *";
+            color: #e74c3c;
+        }
+        .success-message {
+            display: none;
+            background: #d4edda;
+            color: #155724;
+            padding: 15px;
+            border-radius: 4px;
+            margin: 20px 0;
+            text-align: center;
+        }
+        .error-message {
+            display: none;
+            background: #f8d7da;
+            color: #721c24;
+            padding: 15px;
+            border-radius: 4px;
+            margin: 20px 0;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>企业满意度评价表</h1>
+            <p>潍坊市奎文区产学研人力资源发展中心</p>
+        </div>
+
+        <div class="section">
+            <p><strong>填写说明：</strong>请根据您接受我中心服务的实际体验，客观公正地填写本评价表。您的反馈将帮助我们持续改进服务质量。所有信息将严格保密。</p>
+        </div>
+
+        <!-- 表单开始：使用您提供的Formspree URL -->
+        <form id="satisfactionForm" action="https://formspree.io/f/xdkrvneb" method="POST">
+            <!-- 服务质量评价 -->
+            <div class="section">
+                <div class="section-title">一、服务质量评价（请勾选相应分值）</div>
+                <table>
+                    <tr>
+                        <th>评价项目</th>
+                        <th>非常满意(5分) | 满意(4分) | 一般(3分) | 不满意(2分) | 非常不满意(1分)</th>
+                    </tr>
+                    <tr>
+                        <td>需求对接及时性</td>
+                        <td>
+                            <div class="rating">
+                                <label><input type="radio" name="需求对接及时性" value="5分(非常满意)" required> 5分</label>
+                                <label><input type="radio" name="需求对接及时性" value="4分(满意)"> 4分</label>
+                                <label><input type="radio" name="需求对接及时性" value="3分(一般)"> 3分</label>
+                                <label><input type="radio" name="需求对接及时性" value="2分(不满意)"> 2分</label>
+                                <label><input type="radio" name="需求对接及时性" value="1分(非常不满意)"> 1分</label>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>问题咨询响应速度</td>
+                        <td>
+                            <div class="rating">
+                                <label><input type="radio" name="问题咨询响应速度" value="5分(非常满意)" required> 5分</label>
+                                <label><input type="radio" name="问题咨询响应速度" value="4分(满意)"> 4分</label>
+                                <label><input type="radio" name="问题咨询响应速度" value="3分(一般)"> 3分</label>
+                                <label><input type="radio" name="问题咨询响应速度" value="2分(不满意)"> 2分</label>
+                                <label><input type="radio" name="问题咨询响应速度" value="1分(非常不满意)"> 1分</label>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>诊断评估准确性</td>
+                        <td>
+                            <div class="rating">
+                                <label><input type="radio" name="诊断评估准确性" value="5分(非常满意)" required> 5分</label>
+                                <label><input type="radio" name="诊断评估准确性" value="4分(满意)"> 4分</label>
+                                <label><input type="radio" name="诊断评估准确性" value="3分(一般)"> 3分</label>
+                                <label><input type="radio" name="诊断评估准确性" value="2分(不满意)"> 2分</label>
+                                <label><input type="radio" name="诊断评估准确性" value="1分(非常不满意)"> 1分</label>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>协调员专业能力与服务态度</td>
+                        <td>
+                            <div class="rating">
+                                <label><input type="radio" name="协调员专业能力与服务态度" value="5分(非常满意)" required> 5分</label>
+                                <label><input type="radio" name="协调员专业能力与服务态度" value="4分(满意)"> 4分</label>
+                                <label><input type="radio" name="协调员专业能力与服务态度" value="3分(一般)"> 3分</label>
+                                <label><input type="radio" name="协调员专业能力与服务态度" value="2分(不满意)"> 2分</label>
+                                <label><input type="radio" name="协调员专业能力与服务态度" value="1分(非常不满意)"> 1分</label>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>培训/辅导专业深度</td>
+                        <td>
+                            <div class="rating">
+                                <label><input type="radio" name="培训/辅导专业深度" value="5分(非常满意)" required> 5分</label>
+                                <label><input type="radio" name="培训/辅导专业深度" value="4分(满意)"> 4分</label>
+                                <label><input type="radio" name="培训/辅导专业深度" value="3分(一般)"> 3分</label>
+                                <label><input type="radio" name="培训/辅导专业深度" value="2分(不满意)"> 2分</label>
+                                <label><input type="radio" name="培训/辅导专业深度" value="1分(非常不满意)"> 1分</label>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>问题整改响应速度与效果</td>
+                        <td>
+                            <div class="rating">
+                                <label><input type="radio" name="问题整改响应速度与效果" value="5分(非常满意)" required> 5分</label>
+                                <label><input type="radio" name="问题整改响应速度与效果" value="4分(满意)"> 4分</label>
+                                <label><input type="radio" name="问题整改响应速度与效果" value="3分(一般)"> 3分</label>
+                                <label><input type="radio" name="问题整改响应速度与效果" value="2分(不满意)"> 2分</label>
+                                <label><input type="radio" name="问题整改响应速度与效果" value="1分(非常不满意)"> 1分</label>
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+
+            <!-- 总体评价 -->
+            <div class="section">
+                <div class="section-title">二、总体评价</div>
+                <table>
+                    <tr>
+                        <th class="required">总体满意度评分</th>
+                        <td>
+                            <div class="rating">
+                                <label><input type="radio" name="总体满意度评分" value="5分(非常满意)" required> 5分</label>
+                                <label><input type="radio" name="总体满意度评分" value="4分(满意)"> 4分</label>
+                                <label><input type="radio" name="总体满意度评分" value="3分(一般)"> 3分</label>
+                                <label><input type="radio" name="总体满意度评分" value="2分(不满意)"> 2分</label>
+                                <label><input type="radio" name="总体满意度评分" value="1分(非常不满意)"> 1分</label>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th class="required">是否愿意再次选择或推荐中心服务</th>
+                        <td>
+                            <label><input type="radio" name="是否愿意再次选择或推荐中心服务" value="愿意" required> 愿意</label>
+                            <label style="margin-left: 20px;"><input type="radio" name="是否愿意再次选择或推荐中心服务" value="不愿意"> 不愿意</label>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+
+            <!-- 意见与建议 -->
+            <div class="section">
+                <div class="section-title">三、意见与建议</div>
+                <table>
+                    <tr>
+                        <th>最满意的服务环节及原因</th>
+                        <td><textarea name="最满意的服务环节及原因" placeholder="请简要描述"></textarea></td>
+                    </tr>
+                    <tr>
+                        <th>最不满意的服务环节及原因</th>
+                        <td><textarea name="最不满意的服务环节及原因" placeholder="请简要描述"></textarea></td>
+                    </tr>
+                    <tr>
+                        <th>其他改进建议</th>
+                        <td><textarea name="其他改进建议" placeholder="请简要描述"></textarea></td>
+                    </tr>
+                </table>
+            </div>
+
+            <!-- Formspree特殊字段：设置回复地址和邮件主题 -->
+            <input type="hidden" name="_replyto" value="445172591@qq.com">
+            <input type="hidden" name="_subject" value="新的企业满意度评价提交">
+            
+            <div class="success-message" id="successMessage">
+                感谢您提交评价！数据已发送到指定邮箱，我们将认真分析您的反馈并持续改进服务。
+            </div>
+
+            <div class="error-message" id="errorMessage">
+                提交失败，请检查网络连接或稍后再试。
+            </div>
+
+            <div class="footer">
+                <p>感谢您的参与！您的评价对我们非常重要。</p>
+                <button type="submit" class="submit-btn">提交评价</button>
+            </div>
+        </form>
+    </div>
+
+    <script>
+        // 处理表单提交
+        document.getElementById('satisfactionForm').addEventListener('submit', function(e) {
+            e.preventDefault(); // 防止表单默认提交
+            
+            // 验证必填字段
+            const requiredFields = [
+                '需求对接及时性', '问题咨询响应速度', '诊断评估准确性', 
+                '协调员专业能力与服务态度', '培训/辅导专业深度', 
+                '问题整改响应速度与效果', '总体满意度评分', '是否愿意再次选择或推荐中心服务'
+            ];
+            
+            let isValid = true;
+            requiredFields.forEach(field => {
+                const radios = document.getElementsByName(field);
+                let checked = false;
+                for (let i = 0; i < radios.length; i++) {
+                    if (radios[i].checked) {
+                        checked = true;
+                        break;
+                    }
+                }
+                if (!checked) {
+                    isValid = false;
+                    alert(`请填写${field}`);
+                }
+            });
+            
+            if (!isValid) return;
+            
+            // 使用Formspree的AJAX提交
+            const form = e.target;
+            const formData = new FormData(form);
+            
+            fetch(form.action, {
+                method: 'POST',
+                body: formData,
+                headers: {
+                    'Accept': 'application/json'
+                }
+            })
+            .then(response => {
+                if (response.ok) {
+                    document.getElementById('successMessage').style.display = 'block';
+                    document.getElementById('errorMessage').style.display = 'none';
+                    form.reset(); // 提交成功后清空表单
+                } else {
+                    throw new Error('Network response was not ok');
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                document.getElementById('successMessage').style.display = 'none';
+                document.getElementById('errorMessage').style.display = 'block';
+            });
+        });
+    </script>
+</body>
+</html>
